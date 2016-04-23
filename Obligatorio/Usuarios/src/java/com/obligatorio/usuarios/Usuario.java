@@ -6,22 +6,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Ignacio Berretta
  */
+
+@NamedQueries({
+    @NamedQuery(name = "obtenerUsuario", 
+            query = "SELECT u FROM USUARIO u WHERE u.usuario_nombre = :nombreusuario"),
+    @NamedQuery(name = "obtenerTodosLosUsuarios", query = "SELECT u FROM USUARIO u")
+})
+
+
 @Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "usuario_Id")
     private Long id;
     
      @NotNull
-     @Column(name="nombre")
+     @Column(name = "usuario_nombre")
      private String nombre;
 
     public Long getId() {
