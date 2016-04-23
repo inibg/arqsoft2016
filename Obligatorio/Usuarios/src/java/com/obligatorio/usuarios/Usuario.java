@@ -42,8 +42,9 @@ public class Usuario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 3;
+        hash = 53 * hash + (this.getId() != null ? this.getId().hashCode() : 0);
+        hash = 53 * hash + (this.getNombre() != null ? this.getNombre().hashCode() : 0);
         return hash;
     }
 
