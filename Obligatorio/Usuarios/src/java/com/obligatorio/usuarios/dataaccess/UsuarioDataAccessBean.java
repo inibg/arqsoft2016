@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author inibg
+ * @author Ignacio Berretta
  */
 @Stateless
 @LocalBean
